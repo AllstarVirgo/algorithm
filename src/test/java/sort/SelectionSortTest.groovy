@@ -7,7 +7,7 @@ class SelectionSortTest extends Specification {
     def "Sort"() {
         given:
         def array = [4, 2, 3, 1, 6] as int[]
-        def selectSort = new MergeSort()
+        def selectSort = new QuickSort()
         selectSort.sort(array)
 
         expect:
@@ -17,7 +17,7 @@ class SelectionSortTest extends Specification {
     def "random sort"() {
         given:
         def random = new Random();
-        def sorts = [new InsertSort(), new BubbleSort(), new SelectSort(), new MergeSort()]
+        def sorts = [new InsertSort(), new BubbleSort(), new SelectSort(), new MergeSort(), new QuickSort()]
         def arrayList = []
         for (i in 0..<1000) {
             def length = random.nextInt(1000)
