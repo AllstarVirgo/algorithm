@@ -22,10 +22,10 @@ class HeapTest extends Specification {
         int[] unsorted = [5, 3, 2, 8, 1, 4]
 
         when: "sort method is called"
-        heap.sort(unsorted, 5)
+        heap.sort(unsorted)
 
         then: "The array is sorted in ascending order"
-        unsorted == [8, 5, 4, 3, 2, 1]
+        unsorted == [1, 2, 3, 4, 5, 8]
     }
 
     boolean isMinHeap(int[] arr) {
