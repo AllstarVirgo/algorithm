@@ -1,5 +1,6 @@
 package stack.practice;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class BiggerElementAtRight {
@@ -23,6 +24,28 @@ public class BiggerElementAtRight {
         }
         while (!stack.isEmpty()) {
             res[stack.pop()] = -1;
+        }
+        return res;
+    }
+
+    /**
+     * [1,2,3,4,5]
+     * [2,3,4,5,-1]
+     */
+    public int[] nextGreaterElements(int[] nums) {
+        if (nums == null) {
+            return nums;
+        }
+        Stack<Integer> stack = new Stack<>();
+        int[] res = new int[nums.length];
+        Arrays.fill(res, -1);
+        for (int i = 0; i < nums.length * 2 ; i++) {
+            int realIndex = i % nums.length;
+            while (!stack.empty() && nums[realIndex] > nums[stack.peek()]) {
+                int index = stack.pop();
+                res[index] = nums[realIndex];
+            }
+            stack.push(i % nums.length);
         }
         return res;
     }

@@ -16,4 +16,16 @@ class BiggerElementAtRightTest extends Specification {
         [2] as int[]                 || [-1] as int[]
         [] as int[]                  || [] as int[]
     }
+
+    def "nextGreaterElements"() {
+        given:
+        def nextGreaterElements = new BiggerElementAtRight()
+
+        expect:
+        nextGreaterElements.nextGreaterElements(array) == res
+
+        where:
+        array || res
+        [1,2,1] as int[] || [2,-1,2] as int[]
+    }
 }
