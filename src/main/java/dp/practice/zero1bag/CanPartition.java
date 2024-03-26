@@ -1,4 +1,4 @@
-package dp.practice;
+package dp.practice.zero1bag;
 
 public class CanPartition {
     /**

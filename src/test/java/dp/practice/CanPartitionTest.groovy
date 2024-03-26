@@ -1,5 +1,6 @@
 package dp.practice
 
+import dp.practice.zero1bag.CanPartition
 import spock.lang.Specification
 
 class CanPartitionTest extends Specification {

@@ -1,5 +1,6 @@
 package dp.practice
 
+import dp.practice.zero1bag.BagProblem
 import spock.lang.Specification
 
 class BagProblemTest extends Specification {

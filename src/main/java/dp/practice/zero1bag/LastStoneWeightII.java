@@ -1,4 +1,4 @@
-package dp.practice;
+package dp.practice.zero1bag;
 
 public class LastStoneWeightII {
 
@@ -35,7 +35,7 @@ public class LastStoneWeightII {
             sum += num;
         }
         int t = sum - target;
-        if (t % 2 == 1) {
+        if (t < 0 || t % 2 == 1) {
             return 0;
         }
         t = t >> 1;
@@ -47,5 +47,32 @@ public class LastStoneWeightII {
             }
         }
         return dp[t];
+    }
+
+    /**
+     * 01 背包
+     */
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 0; i < strs.length; i++) {
+            for (int j = m; j >= getCount(strs[i], '0'); j--) {
+                for (int k = n; k >= getCount(strs[i], '1'); k--) {
+                    dp[j][k] = Math.max((1 + dp[j - getCount(strs[i], '0')][k - getCount(strs[i], '1')])
+                            , dp[j][k]);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+
+    private int getCount(String str, char c) {
+        final char[] chars = str.toCharArray();
+        int count = 0;
+        for (char aChar : chars) {
+            if (aChar == c) {
+                count++;
+            }
+        }
+        return count;
     }
 }
