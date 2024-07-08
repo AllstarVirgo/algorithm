@@ -6,7 +6,9 @@ import java.util.Arrays;
 public class BagProblem {
 
     public int testWeightBagProblem(int[] weight, int[] value, int bagSize) {
+        // dp[i][j]从容量为0 - i个物品中取出重量小于等于j的背包
         int[][] dp = new int[weight.length][bagSize + 1];
+        // 根据定义，初始化
         for (int i = 0; i < weight.length; i++) {
             dp[i][0] = 0;
         }
@@ -25,8 +27,9 @@ public class BagProblem {
         return dp[weight.length - 1][bagSize];
     }
 
+
     public int wightBagProblemV2(int[] weight, int[] value, int bagSize) {
-        // weight为j时的最大value
+        // 容量为j的背包，所背的物品价值可以最大为dp[j]
         int[] dp = new int[bagSize + 1];
         for (int i = 0; i < weight.length; i++) {
             for (int j = bagSize; j >= weight[i]; j--) {
