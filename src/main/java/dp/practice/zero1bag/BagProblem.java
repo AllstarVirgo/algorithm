@@ -32,6 +32,7 @@ public class BagProblem {
         // 容量为j的背包，所背的物品价值可以最大为dp[j]
         int[] dp = new int[bagSize + 1];
         for (int i = 0; i < weight.length; i++) {
+            // 背包重量从重到轻try，如果 背包重量j < 当前决策的背包重量，就不用继续下去了
             for (int j = bagSize; j >= weight[i]; j--) {
                 dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
             }
