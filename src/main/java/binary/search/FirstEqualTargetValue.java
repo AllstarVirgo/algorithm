@@ -20,5 +20,4 @@ public class FirstEqualTargetValue {
         }
         return -1;
     }
-
 }
